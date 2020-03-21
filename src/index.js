@@ -6,8 +6,7 @@ import * as serviceWorker from './serviceWorker'; //característica: progessive 
 
 
 //hace el render de el componente <App> en donde? en root (es lo que obtiene por el get element)
-ReactDOM.render(<App />, document.getElementById('root')
-);
+ReactDOM.render(<App />, document.getElementById('root'));
 
 
 

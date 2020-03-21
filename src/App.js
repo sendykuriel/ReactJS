@@ -6,9 +6,16 @@ import './App.css'; //importo el css
 //usamos className en vez de class ojo! no es html
 
 
+function Helloworld(props){
+  return (
+    <div id="hello">{props}</div>
+  )
+}
+
+//formato función:
 function App() {
   return (
-    <div>Hello World</div>
+    <div>This is my componente: <Helloworld mytext="Hello Gente"/><Helloworld/><Helloworld/> </div>
   );
 }
 
