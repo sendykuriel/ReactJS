@@ -13,7 +13,7 @@ class Tasks extends Component {
         }
 
 
-Tasks.PropTypes = {
+Tasks.propTypes = {
     tasks: PropTypes.array.isRequired
 }
 
