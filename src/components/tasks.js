@@ -8,7 +8,10 @@ class Tasks extends Component {
 
     //con map, recorro el array de datos y los voy generando 
     render (){
-        return this.props.tasks.map(task=><Task task={task} key={task.id}/>);     
+        return this.props.tasks.map(task=>
+        <Task task={task} 
+        key={task.id} 
+        deleteTask = {this.props.deleteTask} checkDone={this.props.checkDone}/>);     
           }
         }
 

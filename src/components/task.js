@@ -18,13 +18,13 @@ class Task extends Component {
     render (){
      
         //desestructuro así lo extraigo mas facil:
-
+        //deleteTasks: con el bin le paso el parámetro del id seleccionado
         const {task} = this.props;
 
         return <p style={this.styleCompleted()}>
         {task.title} | {task.desc} | {task.done}  
-        <input type='checkbox'/>
-        <button style={btnDelete}>
+        <input type='checkbox' onChange={this.props.checkDone.bind(this, task.id)}/>
+        <button style={btnDelete} onClick={this.props.deleteTask.bind(this,task.id)}> 
             x
         </button>
         
