@@ -6,6 +6,7 @@ import './App.css'; //importo el css
 import tasks from './ejemplos/task.json'; //importo datos de prueba!
 import Tasks from './components/tasks'; // importo el componente de las tareas 
 import TaskForm from './components/taskform' //importo formulario
+import Posts from './component/Posts'
 
 class App extends Component{
 
@@ -56,9 +57,14 @@ class App extends Component{
   render(){
     //acá llamo al componente, que es el que manipula todo, llevándose los datos 
     //paso una función como propiedad al formulario :O
+    //concepto pra revisar: redux, en vez de tener que ir pasando las funciones. 
     return <div>
     <TaskForm addTask = {this.addTask}/>
-    <Tasks tasks={this.state.tasks} deleteTask={this.deleteTask} checkDone={this.checkDone}/>   
+    <Tasks tasks={this.state.tasks}
+          deleteTask={this.deleteTask} 
+         checkDone={this.checkDone}/>   
+    <Posts/>
+
     </div> 
   }
 
