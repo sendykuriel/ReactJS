@@ -6,10 +6,14 @@ import './App.css'; //importo el css
 import tasks from './ejemplos/task.json'; //importo datos de prueba!
 import Tasks from './components/tasks'; // importo el componente de las tareas 
 import TaskForm from './components/taskform' //importo formulario
-import Posts from './component/Posts'
+import Posts from './components/Posts';
+
+//Componente de ruteador para web:
+import {BrowserRouter as Router, Route, Link} from 'react-router-dom';
+
+
 
 class App extends Component{
-
   //meto los datos en un estado:
 
   state = {
@@ -58,15 +62,33 @@ class App extends Component{
     //acá llamo al componente, que es el que manipula todo, llevándose los datos 
     //paso una función como propiedad al formulario :O
     //concepto pra revisar: redux, en vez de tener que ir pasando las funciones. 
+    //en route path es la ruta que va a ver el usuario:
+    //el componente Posts lo estoy llamando directo desde route :)
+    //el exact path es para que en /post no muestre el de / y el de barra sea solo en el EXACT!
+    //link es cmo el <a>
     return <div>
-    <TaskForm addTask = {this.addTask}/>
-    <Tasks tasks={this.state.tasks}
-          deleteTask={this.deleteTask} 
-         checkDone={this.checkDone}/>   
-    <Posts/>
+      <Router>
+        <Link to='/'>Home</Link>
+        <br/>
+        <Link to='/posts'>Ver Posteos</Link>
 
-    </div> 
+            <Route exact path="/" render={()=>{
+               return <div>
+                    <TaskForm addTask = {this.addTask}/>
+                    <Tasks tasks={this.state.tasks}
+                          deleteTask={this.deleteTask} 
+                        checkDone={this.checkDone}/>  
+                </div>
+              }}>
+             </Route>
+          <Route path="/posts" component ={Posts}/>
+           
+    </Router>
+
+
+    </div>
   }
 
 }
+
 export default App;
